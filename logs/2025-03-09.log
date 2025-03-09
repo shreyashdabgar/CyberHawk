@@ -1,0 +1,5 @@
+2025-03-09 12:07:38,834 - root - ERROR - Division by zero error occurred
+Traceback (most recent call last):
+  File "c:\Users\shreyash\Desktop\Network Security system\netwoksecurity\logging\logger.py", line 23, in <module>
+    1 / 0
+ZeroDivisionError: division by zero
