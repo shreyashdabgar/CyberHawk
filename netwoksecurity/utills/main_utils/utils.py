@@ -6,6 +6,7 @@ from netwoksecurity.exception.exception import CustomException
 import pickle 
 import yaml
 import pandas as pd 
+import numpy as np 
 
 """yaml.safe_load() reads a YAML file or string and converts
  it into a Python dictionary (or list, depending on the YAML structure)."""
@@ -36,5 +37,23 @@ def read_yaml_file(file_path : str) -> dict:
 def read(file_path)-> pd.DataFrame:
     try :
         pd.read_csv(file_path) 
+    except Exception as e :
+        raise CustomException(e)
+    
+def save_numpy_array(file_path : str , array : np.array):
+    try :
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path, exist_ok=True)
+        with open (file_path, "wb") as file :
+            np.save(file , array)
+    except Exception as e :
+        raise CustomException(e) 
+    
+def save_obj(file_path : str , obj : object ) -> None : 
+    try :
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path, exist_ok= True)
+        with open(file_path, "wb") as file :
+            pickle.dump(obj, file) 
     except Exception as e :
         raise CustomException(e)

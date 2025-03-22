@@ -39,6 +39,17 @@ DATA_VALIDATION_INVALID_DIR :str = "invalidated"
 DATA_VALIDATION_DRIFT_REPORT_DIR :str = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME :str = "report.yml"
 
+'''data transformation dir'''
+DATA_TRANASFORMATION_DIR :str = "data_transfromation"
+DATA_TRANASFROMATION_TRANSFORMED_DIR :str = "transformed"
+DATA_TRANASFROMATION_OBJECT_DIR :str = "transformed_object"
+DATA_TRANSFORMATION_OBBJECT_FILE_NAME :str = "object.pkl"
 
+## this hard coded value is used for knn model imputer 
+DATA_TRANSFORMED_IMPUTE_PARAMS :dict = {
+    "missing_values":np.nan,
+    "n_neighbors":3,
+    "weights":"uniform",
+}
 '''data processing '''
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO:float = 0.2
