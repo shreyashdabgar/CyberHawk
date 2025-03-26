@@ -43,7 +43,7 @@ DATA_VALIDATION_DRIFT_REPORT_FILE_NAME :str = "report.yml"
 DATA_TRANASFORMATION_DIR :str = "data_transfromation"
 DATA_TRANASFROMATION_TRANSFORMED_DIR :str = "transformed"
 DATA_TRANASFROMATION_OBJECT_DIR :str = "transformed_object"
-DATA_TRANSFORMATION_OBBJECT_FILE_NAME :str = "object.pkl"
+DATA_TRANSFORMATION_OBBJECT_FILE_NAME :str = "preprocesser.pkl"
 
 ## this hard coded value is used for knn model imputer 
 DATA_TRANSFORMED_IMPUTE_PARAMS :dict = {

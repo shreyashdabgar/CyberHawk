@@ -15,7 +15,7 @@ from scipy.stats import ks_2samp
 
 class datavalidation():
     def __init__(self, data_ingestion_artifact : dataingestionArtifacts,
-                 data_validation_config : datavalidationartifacts):
+                 data_validation_config : datavalidationconfig):
         
         try :
             logging.info(" started the datavalidation ")
@@ -115,6 +115,7 @@ class datavalidation():
                 self.data_validation_config.valid_test_file_path 
             )
 
+            #preparing the data validation artifact
             data_validation_artifact = datavalidationartifacts(
                 validation_status  = status,  
                 valid_train_file_path = self.data_validation_config.valid_train_file_path,
