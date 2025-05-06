@@ -4,6 +4,7 @@ from netwoksecurity.components.data_transformation import DataTransfromation
 from netwoksecurity.entities.config_entity import *
 from netwoksecurity.logging.logger import logging
 from netwoksecurity.exception.exception import CustomException
+from netwoksecurity.components.model_trainer import ModelTrainer
 
 if __name__ == '__main__':
     try:
@@ -23,9 +24,18 @@ if __name__ == '__main__':
         logging.info("intiating data transformation")
         data_tarnsformationconfig = data_transformationconfig(trainpipelineconfig)
         data_tranformation = DataTransfromation(datavalidationartifact, data_tarnsformationconfig)
-        data_transform = data_tranformation.intialize_data_transformation()
-        print(data_transform)
+        data_transform_artifact = data_tranformation.intialize_data_transformation()
+        print(data_transform_artifact)
         logging.info("data transformation is done")
+
+        logging.info("intiating model trainer")
+        model_trainer_config = ModelTrainercondfig(trainpipelineconfig)
+        model_trainer = ModelTrainer(model_trainer_config, data_transform_artifact)
+        model_trainer.intiate_model_trainer()
+        logging.info("model trainer is done")
+        
+
+
 
     except Exception as e:
         raise CustomException(e)

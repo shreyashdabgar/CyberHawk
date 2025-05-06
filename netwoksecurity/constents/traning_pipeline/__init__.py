@@ -18,6 +18,7 @@ TEST_FILE_NAME:str = "test.csv"
 
 SCHEMA_FILE_PATH = os.path.join("data_schema", "schema.yaml")
 
+SAVED_MODEL_DIR = os.path.join("saved_model")
 
 
 """ we write this becuase we doesn't have to spacify the path again and agian
@@ -44,6 +45,8 @@ DATA_TRANASFORMATION_DIR :str = "data_transfromation"
 DATA_TRANASFROMATION_TRANSFORMED_DIR :str = "transformed"
 DATA_TRANASFROMATION_OBJECT_DIR :str = "transformed_object"
 DATA_TRANSFORMATION_OBBJECT_FILE_NAME :str = "preprocesser.pkl"
+DATA_TRANSFORMATION_TRAIN_FILE_PATH :str = "train.npy"
+DATA_TRANSFORMATION_TEST_FILE_PATH :str = "test.npy"
 
 ## this hard coded value is used for knn model imputer 
 DATA_TRANSFORMED_IMPUTE_PARAMS :dict = {
@@ -53,3 +56,12 @@ DATA_TRANSFORMED_IMPUTE_PARAMS :dict = {
 }
 '''data processing '''
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO:float = 0.2
+
+
+'''model trainer dir'''
+MODEL_TRAINER_DIR :str = "model_trainer"
+MODEL_DIR :str = "model"
+MODEL_FILE_NAME= "model.pkl"
+EXPECTED_ACCURECY:float = 0.7
+MODEL_CONFIG_FILE_PATH = "model_config.yaml"
+OVERFITTING_UNDERFITTING_THRESHOLD:float = 0.05

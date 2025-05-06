@@ -1,3 +1,5 @@
+'''here we cerate only class for output'''
+
 from netwoksecurity.logging.logger import logging
 from netwoksecurity.exception.exception import CustomException
 import os 
@@ -23,3 +25,16 @@ class data_transform_artifacat():
     transformed_train_file_path : str
     transformed_test_file_path : str
     transformed_object_file_path : str 
+
+@dataclass 
+class classifiactionmetricartifact():
+    f1_score : float
+    precision_score : float
+    recall_score : float 
+
+@dataclass
+class modeltrainingartifacts():
+    trained_model_file_path : str
+    trained_metric_artifact : classifiactionmetricartifact
+    test_metric_artifact : classifiactionmetricartifact 
+

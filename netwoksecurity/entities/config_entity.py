@@ -78,9 +78,20 @@ class data_transformationconfig():
     def __init__(self, training_pipeline_config: trainingpipelineconfig):
         self.data_transformation_dir = os.path.join(training_pipeline_config.artifact_dir,DATA_TRANASFORMATION_DIR
                                                      )
-        self.trasnformed_train_file_path = os.path.join(self.data_transformation_dir, DATA_TRANASFROMATION_TRANSFORMED_DIR, TRAIN_FILE_NAME
+        self.trasnformed_train_file_path = os.path.join(self.data_transformation_dir, DATA_TRANASFROMATION_TRANSFORMED_DIR, DATA_TRANSFORMATION_TRAIN_FILE_PATH
                                                         )
-        self.transformed_test_file_path = os.path.join(self.data_transformation_dir, DATA_TRANASFROMATION_TRANSFORMED_DIR, TEST_FILE_NAME
+        self.transformed_test_file_path = os.path.join(self.data_transformation_dir, DATA_TRANASFROMATION_TRANSFORMED_DIR, DATA_TRANSFORMATION_TEST_FILE_PATH
                                                        )
         self.transformed_object_file_path = os.path.join(self.data_transformation_dir, DATA_TRANASFROMATION_OBJECT_DIR, DATA_TRANSFORMATION_OBBJECT_FILE_NAME
                                                          )
+        
+class ModelTrainercondfig():
+    def __init__(self, training_pipline_config : trainingpipelineconfig):
+        self.model_trainer_dir = os.path.join(
+            training_pipline_config.artifact_dir, MODEL_TRAINER_DIR
+        )
+        self.model_file_path = os.path.join(
+            self.model_trainer_dir, MODEL_DIR, MODEL_FILE_NAME
+        )
+        self.expected_accurecy: float = EXPECTED_ACCURECY
+        self.overfitting_underfitting_threshold = OVERFITTING_UNDERFITTING_THRESHOLD

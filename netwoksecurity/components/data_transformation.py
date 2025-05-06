@@ -91,7 +91,7 @@ class DataTransfromation():
             save_numpy_array(file_path = self.data_transformation_config.transformed_test_file_path, array=test_data)
             save_obj(self.data_transformation_config.transformed_object_file_path , obj=processer)
 
-            # preparing artifact (it is creating a output of this class)
+            # preparing artifact (it is creating a path for output storage)
             data_transnformation_artifact = data_transform_artifacat(
                 transformed_object_file_path=self.data_transformation_config.transformed_object_file_path,
                 transformed_train_file_path=self.data_transformation_config.trasnformed_train_file_path,

@@ -1,0 +1,5 @@
+first create tarining pipline init 
+then create class in config entity
+then create main file like (data transformation , model trainer)
+then create class for take input in main file(data transformation , model trainer)
+then create main class intialize(create stpe by step implimation)
