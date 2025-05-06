@@ -20,6 +20,8 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
+import mlflow
+
 class ModelTrainer():
     def __init__(self,model_trainer_cofig : ModelTrainercondfig,
             data_transformation_artifact : data_transform_artifacat):
@@ -28,6 +30,24 @@ class ModelTrainer():
             self.data_transformation_artifact = data_transformation_artifact
 
         except CustomException as e:
+            raise CustomException(e)
+        
+
+        '''to track the model with mlflow'''
+    def track_model_with_mlflow(self, model, classification_score_metric):
+        try :
+            with mlflow.start_run() as run:
+                f1_score = classification_score_metric.f1_score
+                precision = classification_score_metric.precision_score
+                recall = classification_score_metric.recall_score
+
+                mlflow.log_metric("f1_score", f1_score)
+                mlflow.log_metric("precision", precision)
+                mlflow.log_metric("recall", recall)
+                mlflow.sklearn.log_model(model, "model")
+
+
+        except Exception as e :
             raise CustomException(e)
 
 
@@ -64,6 +84,9 @@ class ModelTrainer():
 
             logging.info(f"model report : {model_report}")
 
+            # tracking the model with mlflow
+            self.track_model_with_mlflow(model = best_model, classification_score_metric=train_score)
+            self.track_model_with_mlflow(model=best_model, classification_score_metric=test_score)
 
             '''loading exsiting preprocesser object and saving the model'''
             preprocesser = load_obj(self.data_transformation_artifact.transformed_object_file_path)
