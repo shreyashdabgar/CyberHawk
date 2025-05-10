@@ -22,6 +22,11 @@ from sklearn.model_selection import train_test_split
 
 import mlflow
 
+import dagshub
+dagshub.init(repo_owner='shreyashdabgar', repo_name='CyberHawk', mlflow=True)
+
+
+
 class ModelTrainer():
     def __init__(self,model_trainer_cofig : ModelTrainercondfig,
             data_transformation_artifact : data_transform_artifacat):
@@ -97,6 +102,9 @@ class ModelTrainer():
             '''combining both model and preprocessor object and saving them'''
             network_security_model = networkmodel(preprocesser=preprocesser, model=best_model)
             save_obj(file_path = self.model_trainer_cofig.model_file_path, obj=network_security_model)
+
+            #saving obj in final dir 
+            save_obj("final_model/model.pkl", obj = best_model)
 
             model_trainer_artifact = modeltrainingartifacts(trained_model_file_path=self.model_trainer_cofig.model_file_path,
                                    trained_metric_artifact=train_score,
